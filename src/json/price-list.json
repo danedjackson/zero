@@ -1,0 +1,182 @@
+[    
+    {
+        "Dino": "Acrocanthosaurus",
+        "ShortName": "Acro",
+        "Price": 1500,
+        "CodeName": "Acro"
+    },
+    {
+        "Dino": "Albertosaurus",
+        "ShortName": "Albert",
+        "Price": 800,
+        "CodeName": "Albert"
+    },
+    {
+        "Dino": "Allosaurus",
+        "ShortName": "Allo",
+        "Price": 800,
+        "CodeName": "AlloAdultS"
+    },
+    {
+        "Dino": "Ankylosaurus",
+        "ShortName": "Anky",
+        "Price": 1500,
+        "CodeName": "Anky"
+    },
+    {
+        "Dino": "Austroraptor",
+        "ShortName": "Austro",
+        "Price": 600,
+        "CodeName": "Austro"
+    },
+    {
+        "Dino": "Avaceratops",
+        "ShortName": "Ava",
+        "Price": 200,
+        "CodeName": "Ava"
+    },
+    {
+        "Dino": "Baryonyx",
+        "ShortName": "Bary",
+        "Price": 700,
+        "CodeName": "Bary"
+    },
+    {
+        "Dino": "Camarasaurus",
+        "ShortName": "Camara",
+        "Price": 10000,
+        "CodeName": "Camara"
+    },
+    {
+        "Dino": "Carnotaurus",
+        "ShortName": "Carno",
+        "Price": 700,
+        "CodeName": "CarnoAdultS"
+    },
+    {
+        "Dino": "Ceratosaurus",
+        "ShortName": "Cera",
+        "Price": 700,
+        "CodeName": "CeratoAdultS"
+    },
+    {
+        "Dino": "Diabloceratops",
+        "ShortName": "Diablo",
+        "Price": 800,
+        "CodeName": "DiabloAdultS"
+    },
+    {
+        "Dino": "Dilophosaurus",
+        "ShortName": "Dilo",
+        "Price": 700,
+        "CodeName": "DiloAdultS"
+    },
+    {
+        "Dino": "Dryosaurous",
+        "ShortName": "Dryo",
+        "Price": 600,
+        "CodeName": "DryoAdultS"
+    },
+    {
+        "Dino": "Gallimimus",
+        "ShortName": "Galli",
+        "Price": 700,
+        "CodeName": "GalliAdultS"
+    },
+    {
+        "Dino": "Giganotosaurus",
+        "ShortName": "Giga",
+        "Price": 6000,
+        "CodeName": "GigaAdultS"
+    },
+    {
+        "Dino": "Herrerasaurus",
+        "ShortName": "Herrera",
+        "Price": 600,
+        "CodeName": "Herrera"
+    },
+    {
+        "Dino": "Maiasaura",
+        "ShortName": "Maia",
+        "Price": 800,
+        "CodeName": "MaiaAdultS"
+    },
+    {
+        "Dino": "Orodromeus",
+        "ShortName": "Oro",
+        "Price": 200,
+        "CodeName": "Oro"
+    },
+    {
+        "Dino": "Pachycephalosaurus",
+        "ShortName": "Pachy",
+        "Price": 700,
+        "CodeName": "PachyAdultS"
+    },
+    {
+        "Dino": "Parasaurolophus",
+        "ShortName": "Para",
+        "Price": 800,
+        "CodeName": "ParaAdultS"
+    },
+    {
+        "Dino": "Shantungosaurus",
+        "ShortName": "Shant",
+        "Price": 10000,
+        "CodeName": "Shant"
+    },
+    {
+        "Dino": "Spinosaurus",
+        "ShortName": "Spino",
+        "Price": 13000,
+        "CodeName": "Spino"
+    },
+    {
+        "Dino": "Stegosaurus",
+        "ShortName": "Stego",
+        "Price": 1500,
+        "CodeName": "Stego"
+    },
+    {
+        "Dino": "Suchomimus",
+        "ShortName": "Sucho",
+        "Price": 800,
+        "CodeName": "SuchoAdultS"
+    },
+    {
+        "Dino": "Psittacosaurus",
+        "ShortName": "Taco",
+        "Price": 200,
+        "CodeName": "Taco"
+    },
+    {
+        "Dino": "Therizinosaurus",
+        "ShortName": "Theri",
+        "Price": 1500,
+        "CodeName": "Theri"
+    },
+    {
+        "Dino": "Triceratops",
+        "ShortName": "Trike",
+        "Price": 6000,
+        "CodeName": "TrikeAdultS"
+    },
+    {
+        "Dino": "Tyrannosaurus Rex",
+        "ShortName": "Rex",
+        "Price": 6000,
+        "CodeName": "RexAdultS"
+    },
+    {
+        "Dino": "Utahraptor",
+        "ShortName": "Utah",
+        "Price": 700,
+        "CodeName": "UtahAdultS"
+    },
+    {
+        "Dino": "Velociraptor",
+        "ShortName": "Velo",
+        "Price": 200,
+        "CodeName": "Velo"
+    }
+]
