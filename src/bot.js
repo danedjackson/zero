@@ -20,10 +20,11 @@ require('dotenv').config();
 
 const token = process.env.TOKEN;
 const prefix = process.env.PREFIX;
+
 //Logs a success message when log in succeeds
 
 //Importing functions
-var { injectPrompts } = require('./functions/embeds');
+var { injectPrompts, getDinoPricesEmbed } = require('./functions/embeds');
 var { changePrice } = require('./functions/pricelist');
 var { processFileTransfer, deleteFile } = require('./functions/fileTransfer');
 var { getSteamID, updateSteamID, addSteamID } = require('./api/steamManager');
@@ -88,6 +89,10 @@ discordClient.on("message", async message => {
         if (changePrice(args[0], args[1])) return message.reply(`successfully changed the price of ${args[0]}`);
 
         return message.reply(`could not chnage the price of ${args[0]}`);
+    }
+
+    if ( cmdName.toLowerCase() == "prices" ) {
+        return await getDinoPricesEmbed(message);
     }
 
     if ( cmdName.toLowerCase() === "inject" ) {

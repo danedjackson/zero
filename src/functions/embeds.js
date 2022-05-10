@@ -3,6 +3,7 @@ const prefix = process.env.PREFIX;
 
 var { getDinoPrices } = require('./pricelist');
 var { getSteamID } = require('../api/steamManager');
+var { getDinoPrices } = require('../functions/pricelist');
 const { get } = require('express/lib/response');
 
 const cancelCheck = (msg) => {
@@ -19,8 +20,8 @@ async function initializeEmbed(message, title, footer, hexColor) {
         max: 1,
         time: 200000
     }
-    return new [
-        Discord.MessageEmbed()
+    return [
+        new Discord.MessageEmbed()
         .setTitle(title)
         .setColor(hexColor)
         .setFooter(footer),
@@ -149,4 +150,23 @@ async function injectPrompts(message) {
     return false;
 };
 
-module.exports = { growPrompts, injectPrompts, slayPrompts};
+async function getDinoPricesEmbed(message) {
+    var data = await getDinoPrices();
+    var msg = "";
+
+    for (var x = 0; x < data.length; x++){
+        msg += data[x].Dino + ": $" + data[x].Price.toLocaleString() + "\n\n";
+    }
+
+    const embed = new Discord.MessageEmbed()
+    .setTitle('**Price List**')
+    .setColor('#DAF7A6')
+    .addFields(
+        {name: "\n🦎__**DINOSAUR PRICES (Points)**__🦎\n\n",
+        value: msg}
+    )
+    
+    return message.reply(embed);
+}
+
+module.exports = { injectPrompts, getDinoPricesEmbed };

@@ -1,4 +1,4 @@
-[    
+[
     {
         "Dino": "Acrocanthosaurus",
         "ShortName": "Acro",
@@ -170,7 +170,7 @@
     {
         "Dino": "Utahraptor",
         "ShortName": "Utah",
-        "Price": 700,
+        "Price": 100,
         "CodeName": "UtahAdultS"
     },
     {

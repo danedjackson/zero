@@ -24,7 +24,7 @@ async function changePrice (dinoName, newPrice) {
     try{
       var dinoPriceList = readPricesFile();
       dinoPriceList.forEach(dino => {
-          if (dino.ShortName.toLowerCase() == dinoName.toLowerCase()) dino.Price = newPrice;
+          if (dino.ShortName.toLowerCase() == dinoName.toLowerCase()) dino.Price = parseInt(newPrice);
       });
       savePricesFile(dinoPriceList);
       return true;
