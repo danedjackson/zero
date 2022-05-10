@@ -23,7 +23,8 @@ const prefix = process.env.PREFIX;
 //Logs a success message when log in succeeds
 
 //Importing functions
-var { growPrompts, injectPrompts, slayPrompts } = require('./functions/embeds');
+var { injectPrompts } = require('./functions/embeds');
+var { changePrice } = require('./functions/pricelist');
 var { processFileTransfer, deleteFile } = require('./functions/fileTransfer');
 var { getSteamID, updateSteamID, addSteamID } = require('./api/steamManager');
 
@@ -78,6 +79,16 @@ discordClient.on("message", async message => {
         .substring(prefix.length)
         .split(/ +/g);
 
+
+    if ( cmdName.toLowerCase() === "change-price" ) {
+        if (!adminRoleCheck(message)) return message.reply(`you do not have the rights to use this command.`);
+
+        if( args.length != 2 ) return message.reply(`please use the following format:\n${prefix}change-price [dino name] [new price]`);
+
+        if (changePrice(args[0], args[1])) return message.reply(`successfully changed the price of ${args[0]}`);
+
+        return message.reply(`could not chnage the price of ${args[0]}`);
+    }
 
     if ( cmdName.toLowerCase() === "inject" ) {
         //if ( !channelIdCheck(message.channel.id, "inject") ) return message.reply(`please use <#${channelIds.growChannel}>`);
