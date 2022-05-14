@@ -26,6 +26,7 @@ const prefix = process.env.PREFIX;
 //Importing functions
 var { injectPrompts, getDinoPricesEmbed } = require('./functions/embeds');
 var { changePrice } = require('./functions/pricelist');
+var { addLifes, getLifes } = require('./functions/lifes');
 var { processFileTransfer, deleteFile } = require('./functions/fileTransfer');
 var { getSteamID, updateSteamID, addSteamID } = require('./api/steamManager');
 
@@ -80,6 +81,20 @@ discordClient.on("message", async message => {
         .substring(prefix.length)
         .split(/ +/g);
 
+    //ADMIN COMMANDS
+    if ( cmdName.toLowerCase() === "updateid" ) {
+        
+        // if ( !channelIdCheck(message.channel.id, "link") ) return message.reply(`please use <#862878037699330058>`);
+        
+        if (!adminRoleCheck(message)) return message.reply(`you do not have the rights to use this command.`);
+        
+        if( args.length != 2 ) return message.reply(`please use the followeing format\n${prefix}updateid [@user] [updated steam ID]`);
+
+        if( !await updateSteamID(args[0], args[1]) ) return message.reply(`something went wrong updating this ID.`);
+
+        return message.reply(`${args[0]}'s steam id successfully updated.`);
+
+    }
 
     if ( cmdName.toLowerCase() === "change-price" ) {
         if (!adminRoleCheck(message)) return message.reply(`you do not have the rights to use this command.`);
@@ -88,9 +103,43 @@ discordClient.on("message", async message => {
 
         if (changePrice(args[0], args[1])) return message.reply(`successfully changed the price of ${args[0]}`);
 
-        return message.reply(`could not chnage the price of ${args[0]}`);
+        return message.reply(`could not change the price of ${args[0]}`);
     }
 
+    if ( cmdName.toLowerCase() === "addlifes" ) {
+        if (!adminRoleCheck(message)) return message.reply(`you do not have the rights to use this command.`);
+
+        if( args.length != 2 ) return message.reply(`please use the following format:\n${prefix}addlives [@User] [lifes to add]`);
+
+        if ( !await addLifes(args[0], args[1]) ) return message.reply(`succesffully added ${args[1]} lifes to user.`);
+
+        return message.reply(`could not add lifes to user.`);
+        
+    }
+
+    if ( cmdName.toLowerCase() === "removelifes" ) {
+        if (!adminRoleCheck(message)) return message.reply(`you do not have the rights to use this command.`);
+
+        if( args.length != 2 ) return message.reply(`please use the following format:\n${prefix}removelifes [@User] [lifes to add]`);
+
+        if ( !await removeLifes(args[0], args[1]) ) return message.reply(`succesfully removed ${args[1]} lifes to user.`);
+
+        return message.reply(`could not remove lifes to user`);
+        
+    }
+
+    if ( cmdName.toLowerCase() === "getlifes" ) {
+        if (!adminRoleCheck(message)) return message.reply(`you do not have the rights to use this command.`);
+
+        if( args.length != 2 ) return message.reply(`please use the following format:\n${prefix}getlifes [@User]`);
+
+        var lifes = await getLifes(args[0]);
+
+        return message.reply(`${lifes} lifes`);
+        
+    }
+
+    //USER COMMANDS
     if ( cmdName.toLowerCase() == "prices" ) {
         return await getDinoPricesEmbed(message);
     }
@@ -126,19 +175,7 @@ discordClient.on("message", async message => {
         return message.reply(`successfully linked your steam ID`);
     }
 
-    if ( cmdName.toLowerCase() === "updateid" ) {
-        
-        // if ( !channelIdCheck(message.channel.id, "link") ) return message.reply(`please use <#862878037699330058>`);
-        
-        if (!adminRoleCheck(message)) return message.reply(`you do not have the rights to use this command.`);
-        
-        if( args.length != 2 ) return message.reply(`please use the followeing format\n${prefix}updateid [@user] [updated steam ID]`);
 
-        if( !await updateSteamID(args[0], args[1]) ) return message.reply(`something went wrong updating this ID.`);
-
-        return message.reply(`${args[0]}'s steam id successfully updated.`);
-
-    }
 
 });
 
